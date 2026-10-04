@@ -1,5 +1,37 @@
-
-const cssVars = (d = DESIGN) =>
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lapis Moon Boutique | Crochet patterns</title>
+<script>/* Lapis Moon Boutique: design rules.
+   Direction: Retro-Futurist Pattern Lab (type + structure) x Dream Atelier (palette). */
+const DESIGN = {
+  color: {
+    night: '#3B3F8F',  // text, anchors, primary button
+    mist:  '#8C9EE8',  // art backgrounds, lines. Never body text
+    butter:'#FFE9A8',  // badges, ticker, highlights only
+    rose:  '#F7B8D2',  // the one accent
+    haze:  '#E7DDFB',  // cards, quiet surfaces
+    cloud: '#FFFBF6'   // page background
+  },
+  font: {
+    display: "'Bricolage Grotesque', system-ui, sans-serif",
+    mono: "'DM Mono', ui-monospace, monospace",
+    href: 'https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;600;800&family=DM+Mono:wght@400;500&display=swap'
+  },
+  space: [4, 8, 12, 16, 24, 40, 64, 96],
+  radius: { sm: '10px', md: '22px', pill: '999px' },
+  motion: { fast: '160ms', slow: '600ms', ease: 'cubic-bezier(.2,.8,.2,1)' },
+  rules: [
+    'Palette is closed: six colors. Anything else must be a color-mix() of these.',
+    'Rose is the only accent. Butter is for badges, ticker and highlights only.',
+    'DM Mono is for data (specs, prices, labels). Bricolage Grotesque for everything else.',
+    'Headlines: sentence case, two lines max, end with a period.',
+    'Every pattern shows its spec strip: hook, yarn, hours.',
+    'Motion is limited to orbit, ticker and hover lift. Honour prefers-reduced-motion.',
+    'Text must meet WCAG AA. Night-on-mist is large text only.'
+  ]
+};
+  const cssVars = (d = DESIGN) =>
   ':root{' +
   Object.entries(d.color).map(([k, v]) => `--${k}:${v}`).join(';') +
   `;--f-display:${d.font.display};--f-mono:${d.font.mono}` +
